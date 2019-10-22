@@ -36,7 +36,7 @@ function getRandomInt(max) {
     return Math.floor(Math.random()* Math.floor(max)); //make it integer
 }
 
-//Endpoint tt returns HTML structure
+//Endpoint tt returns HTML structure. localhost:3000 returns index.html
 app.get('/image',(req,res,next)=>{
     res.status(200);
     res.type('text/html');
