@@ -6,7 +6,7 @@ const fs = require('fs'); //filesystem
 
 //init
 const app = express();
-const APP_PORT = process.env.PORT | 3000;
+const APP_PORT = process.env.PORT || 5000;
 
 //setup handlebar
 app.engine('hbs', exphb());
