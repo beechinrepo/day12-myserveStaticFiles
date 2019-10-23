@@ -44,6 +44,13 @@ app.get('/image',(req,res,next)=>{
     res.send(`<img src="${randomImagesArr[randomNumber]}"></img>`);
 });
 
+//Qns3
+app.get('/image/:filename',(req,res,next)=>{
+    res.status(200);
+    res.type('text/html');
+    res.send(`<img src="${imageDir/filename}"></img>`);
+});
+
 //Endpoint tt uses hbs (nt r'qd)
 app.get('/image2', (req,res,nest)=> {
     let randomNumber =  getRandomInt(randomImagesArr.length);
