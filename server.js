@@ -63,3 +63,5 @@ app.use((req, res, next)=>{
 app.listen(APP_PORT, ()=>{
     console.log(`App Server started on ${APP_PORT}`)
 })
+
+//test
