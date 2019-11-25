@@ -12,7 +12,7 @@ const APP_PORT = process.env.PORT || 5000;
 app.engine('hbs', exphb());
 app.set('view engine', 'hbs');
 
-//initialize static content
+//initialize static content: serve files from 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 imageDir = path.join(__dirname, 'views', 'images');
 app.use(express.static(imageDir));
@@ -45,10 +45,11 @@ app.get('/image',(req,res,next)=>{
 });
 
 //Qns3
-app.get('/image/:filename',(req,res,next)=>{
+app.get('/image/:imageId',(req,res,next)=>{  //localhost:5000/image/kitty1
     res.status(200);
     res.type('text/html');
-    res.send(`<img src="${imageDir/filename}"></img>`);
+    res.send(req.params);  //{"imageId":"kitty1"}
+    // res.send(`<img src="${path.join(imageDir, req.params.imageId)}.jpg"></img>`);???
 });
 
 //Endpoint tt uses hbs (nt r'qd)
@@ -63,6 +64,7 @@ app.get('/random-image', (req,res,next)=> {
     res.sendFile(randomImagesArrWithPath[randomNumber]);
 })
 
+//if requested file is nt found, use following function to handle it
 app.use((req, res, next)=>{
     res.send("<b>ERROR!</b>");
 });
